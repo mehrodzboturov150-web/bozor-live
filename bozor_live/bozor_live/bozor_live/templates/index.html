@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="Bozor.tj — удобная площадка объявлений Таджикистана. Покупайте и продавайте рядом с вами.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Bozor.tj — автомобили и объявления в Таджикистане</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+  <script defer src="{{ url_for('static',filename='js/app.js') }}"></script>
+</head>
+<body>
+<svg class="svg-symbols" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.7a5.5 5.5 0 0 0-7.8 0L12 5.8l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.5a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
+  <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 9.8 9.8 0 0 1-4-.8L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5Z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M19 10c0 5.3-7 11-7 11S5 15.3 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 7h16M7 12h10M10 17h4"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 2 8 4v6c0 5-3 8-8 10-5-2-8-5-8-10V6l8-4Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M3 7h4l2-3h6l2 3h4v13H3V7Z"/><circle cx="12" cy="13" r="4"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5 19 19M19 5 5 19"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="m16 4 4 4L9 19l-5 1 1-5L16 4Z"/><path d="m14 6 4 4"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14M10 11v6M14 11v6"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5M13 7l5 5-5 5M8 12h10"/></symbol>
+</svg>
+
+<div class="top-strip"><div class="container strip-inner"><span>🇹🇯 Автомобили и объявления Таджикистана</span><span class="strip-right">Машины, запчасти, товары и услуги рядом</span></div></div>
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="/" data-action="home" aria-label="Bozor.tj — главная">
+      <span class="brand-mark">b<span>•</span></span><span>bozor<span class="brand-end">.tj</span></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Основное меню">
+      <button class="nav-link" data-action="autosearch">Автомобили</button><button class="nav-link" data-action="home">Все объявления</button>
+      <button class="nav-link" data-action="how">Как это работает</button>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-button desktop-action" data-action="favorites" aria-label="Избранное"><svg class="icon"><use href="#i-heart"/></svg><span>Избранное</span></button>
+      <button class="icon-button desktop-action" data-action="inbox" aria-label="Сообщения"><svg class="icon"><use href="#i-message"/></svg><span>Сообщения</span></button>
+      <button class="icon-button user-button" data-action="account"><span class="avatar-mini"><svg class="icon"><use href="#i-user"/></svg></span><span id="accountText">Войти</span></button>
+      <button class="button button-primary publish-button" data-action="publish"><svg class="icon"><use href="#i-plus"/></svg><span>Подать объявление</span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero-section"><div class="container">
+    <div class="hero-grid drom-hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> АВТОМОБИЛИ И ОБЪЯВЛЕНИЯ ТАДЖИКИСТАНА</div>
+        <h1>Найдите свой<br><span>следующий автомобиль.</span></h1>
+        <p>Подберите машину по марке, году и цене. Сравнивайте реальные объявления, сохраняйте избранное и общайтесь с продавцами.</p>
+        <form class="hero-search" id="searchForm" role="search">
+          <svg class="icon"><use href="#i-search"/></svg>
+          <input id="searchInput" type="search" placeholder="Марка, модель, запчасти или любой товар" aria-label="Найти объявление" maxlength="100" autocomplete="off">
+          <button type="submit" class="button button-primary">Найти <svg class="icon"><use href="#i-arrow"/></svg></button>
+        </form>
+        <div class="hero-note"><svg class="icon"><use href="#i-shield"/></svg> Прямой контакт с продавцом · Объявления по всему Таджикистану</div>
+      </div>
+      <div class="hero-art auto-hero-art" aria-hidden="true">
+        <div class="car-glow"></div>
+        <div class="car-line car-line-1"></div><div class="car-line car-line-2"></div>
+        <svg class="auto-illustration" viewBox="0 0 690 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="344" cy="298" rx="292" ry="19" fill="#0A101D" opacity=".3"/>
+          <path d="M79 206L118 178L177 159L239 103C253 90 272 81 300 81H429C450 81 470 89 484 103L535 156L599 173C620 178 633 191 637 210L642 246Q644 270 623 276H585C576 235 560 220 524 220C486 220 463 243 456 277H232C222 243 199 222 161 222C121 222 99 245 93 278H66Q49 278 48 260L46 225Q48 211 79 206Z" fill="#E2E8ED"/>
+          <path d="M244 107L191 158H522L477 111C465 99 455 95 429 95H302C276 95 260 101 244 107Z" fill="#24394C"/>
+          <path d="M307 101L273 154H413L416 98H310Z" fill="#7994A5" opacity=".5"/>
+          <path d="M426 98L424 154H513L476 113C463 101 455 98 426 98Z" fill="#7994A5" opacity=".48"/>
+          <path d="M71 210L120 195L135 202L94 221H59Z" fill="#FDF4D5"/><path d="M582 188L625 203L634 222L593 215Z" fill="#D7442C"/>
+          <path d="M77 187L183 173M199 160H517M250 194L450 193" stroke="white" opacity=".64" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="162" cy="271" r="48" fill="#171C25"/><circle cx="162" cy="271" r="28" fill="#B8C2CA"/><circle cx="162" cy="271" r="12" fill="#596978"/>
+          <circle cx="521" cy="271" r="48" fill="#171C25"/><circle cx="521" cy="271" r="28" fill="#B8C2CA"/><circle cx="521" cy="271" r="12" fill="#596978"/>
+          <path d="M43 245H94M581 245H642" stroke="#7C8895" stroke-width="8" stroke-linecap="round"/>
+          <path d="M250 171H272M427 171H450" stroke="#697988" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <div class="hero-art-bottom"><span>🇹🇯</span><b>Выбор начинается здесь</b></div>
+      </div>
+    </div>
+    <div class="auto-quick-search" id="autoSearchPanel">
+      <div class="quick-title"><span class="quick-dot"></span><strong>Подбор автомобиля</strong><small>Быстро и по делу</small></div>
+      <div class="quick-controls">
+        <label><span>Марка</span><select id="quickBrand"><option value="">Любая марка</option></select></label>
+        <label><span>Модель</span><input id="quickModel" type="text" placeholder="Любая модель" maxlength="60"></label>
+        <label><span>Год от</span><input id="quickYear" type="number" placeholder="От 2005" min="1900" max="2027"></label>
+        <label><span>Цена до, сомони</span><input id="quickPrice" type="number" placeholder="Без ограничения" min="0"></label>
+        <button class="button button-primary" data-action="quick-autosearch">Показать авто <svg class="icon"><use href="#i-arrow"/></svg></button>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="category-section container" aria-labelledby="categoryHeading">
+    <div class="section-titleline"><div><div class="kicker">ВСЁ ДЛЯ ПОКУПКИ И ПРОДАЖИ</div><h2 id="categoryHeading">Разделы Bozor.tj</h2></div><button class="text-link" data-action="clear-category">Смотреть все <svg class="icon"><use href="#i-arrow"/></svg></button></div>
+    <div id="categoryTiles" class="category-grid"></div>
+  </section>
+
+  <section class="catalog-section" id="catalog"><div class="container">
+    <div class="section-titleline catalog-heading"><div><div class="kicker">АКТУАЛЬНЫЕ ПРЕДЛОЖЕНИЯ</div><h2 id="pageHeading">Объявления</h2><p id="resultSummary" class="section-sub">Здесь появляются новые предложения</p></div><button class="button button-outline mine-button" data-action="mine"><svg class="icon"><use href="#i-user"/></svg> Мои объявления</button></div>
+    <div class="catalog-layout">
+      <aside class="filters-sidebar" id="filtersPanel" aria-label="Фильтры объявлений">
+        <div class="filter-head"><h3><svg class="icon"><use href="#i-filter"/></svg> Фильтры</h3><button class="text-link small" data-action="reset-filters">Сбросить</button></div>
+        <div class="filter-block"><label class="filter-label" for="filterCity">Город</label><select id="filterCity"><option value="">Весь Таджикистан</option></select></div>
+        <div class="filter-block"><div class="filter-label">Цена, сомони</div><div class="price-inputs"><input type="number" min="0" id="minPrice" placeholder="От" aria-label="Цена от"><span>—</span><input type="number" min="0" id="maxPrice" placeholder="До" aria-label="Цена до"></div></div>
+        <div class="filter-block auto-filter-block" id="autoFilterBlock">
+          <div class="filter-label">Параметры автомобиля</div>
+          <label class="filter-label subtle" for="filterBrand">Марка</label><select id="filterBrand"><option value="">Все марки</option></select>
+          <label class="filter-label subtle" for="filterModel">Модель</label><input id="filterModel" placeholder="Например, Camry" maxlength="60">
+          <div class="price-inputs car-yr"><label>Год от<input id="filterYearFrom" type="number" min="1900" max="2027" placeholder="2000"></label><label>Год до<input id="filterYearTo" type="number" min="1900" max="2027" placeholder="2026"></label></div>
+          <label class="filter-label subtle" for="filterTransmission">Коробка</label><select id="filterTransmission"><option value="">Любая</option><option>Автомат</option><option>Механика</option><option>Вариатор</option><option>Робот</option></select>
+        </div><div class="filter-block"><div class="filter-label">Категория</div><div id="categoryFilter" class="sidebar-category-list"></div></div>
+        <button class="button button-primary filter-apply" data-action="apply-filters">Показать объявления</button>
+        <div class="filter-assist"><svg class="icon"><use href="#i-shield"/></svg> Никогда не передавайте пароль или код подтверждения продавцам.</div>
+      </aside>
+      <div class="catalog-content">
+        <div class="catalog-toolbar"><div class="toolbar-left"><span id="modeBadge" class="mode-badge" hidden></span><span id="countLabel" class="toolbar-counter">Загрузка объявлений...</span></div><div class="toolbar-actions"><button class="mobile-filter-toggle button button-quiet" data-action="toggle-filters"><svg class="icon"><use href="#i-filter"/></svg> Фильтры</button><label for="sortSelect" class="visually-hidden">Сортировка</label><select id="sortSelect" class="sort-select"><option value="newest">Сначала новые</option><option value="price_asc">Сначала дешевле</option><option value="price_desc">Сначала дороже</option><option value="oldest">Сначала старые</option></select></div></div>
+        <div id="listingGrid" class="listing-grid" aria-live="polite"></div>
+        <div class="pagination" id="pagination" hidden><button class="button button-outline" data-action="prev-page">← Назад</button><span id="pageIndicator"></span><button class="button button-outline" data-action="next-page">Дальше →</button></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="sell-cta container" id="howItWorks"><div class="cta-symbol">✨</div><div><div class="kicker">ЭТО ПРОЩЕ, ЧЕМ КАЖЕТСЯ</div><h2>У ваших вещей есть новый покупатель.</h2><p>Сфотографируйте товар, напишите пару слов и опубликуйте — это бесплатно.</p></div><button class="button button-white" data-action="publish">Разместить объявление <svg class="icon"><use href="#i-arrow"/></svg></button></section>
+</main>
+<footer class="site-footer"><div class="container footer-inner"><div><div class="footer-brand">bozor<span>.tj</span></div><p>Место выгодных находок по всему Таджикистану.</p></div><div class="footer-note">© <span id="year"></span> Bozor.tj · Сделано для удобных сделок</div></div></footer>
+<nav class="mobile-bottom" aria-label="Быстрое меню"><button data-action="home"><svg class="icon"><use href="#i-grid"/></svg><span>Главная</span></button><button data-action="favorites"><svg class="icon"><use href="#i-heart"/></svg><span>Избранное</span></button><button data-action="publish" class="mobile-publish"><svg class="icon"><use href="#i-plus"/></svg><span>Подать</span></button><button data-action="inbox"><svg class="icon"><use href="#i-message"/></svg><span>Чаты</span></button><button data-action="account"><svg class="icon"><use href="#i-user"/></svg><span>Профиль</span></button></nav>
+
+<dialog class="dialog dialog-narrow" id="authDialog" aria-labelledby="authTitle"><div class="dialog-head"><div><div class="kicker">ВАШ BOZOR</div><h2 id="authTitle">Войти в аккаунт</h2></div><button class="close-button" data-close="authDialog" aria-label="Закрыть"><svg class="icon"><use href="#i-close"/></svg></button></div><div class="dialog-body"><p class="dialog-lead" id="authLead">Войдите, чтобы публиковать объявления, сохранять находки и общаться с продавцами.</p><form id="authForm" class="form-stack"><label>Имя пользователя<input name="username" required minlength="3" maxlength="40" autocomplete="username" placeholder="Например, farid95"></label><label>Пароль<input name="password" type="password" required minlength="8" maxlength="128" autocomplete="current-password" placeholder="Минимум 8 символов"></label><button type="submit" class="button button-primary button-wide" id="authSubmit">Войти</button></form><p class="switch-line" id="authSwitchText">Нет аккаунта? <button class="inline-link" data-action="switch-auth">Зарегистрироваться</button></p></div></dialog>
+
+<dialog class="dialog dialog-post" id="postDialog" aria-labelledby="postTitle">
+  <div class="dialog-head"><div><div class="kicker">СОЗДАТЬ ИЛИ ИЗМЕНИТЬ ОБЪЯВЛЕНИЕ</div><h2 id="postTitle">Новое объявление</h2></div><button class="close-button" data-close="postDialog" aria-label="Закрыть"><svg class="icon"><use href="#i-close"/></svg></button></div>
+  <form id="postForm" class="post-form dialog-body" enctype="multipart/form-data">
+    <div class="post-section-head"><span class="step-pill">01</span><div><strong>Основная информация</strong><small>Что вы продаёте?</small></div></div>
+    <div class="form-grid">
+      <label>Категория<select id="postCategory" name="category" required></select></label>
+      <label>Город<select id="postCity" name="city" required></select></label>
+      <label class="span-2">Название объявления<input name="title" required minlength="3" maxlength="100" placeholder="Например, Toyota Camry, 2018 год"></label>
+      <label class="span-2">Цена, сомони<input type="number" name="price" required min="0" max="999999999" placeholder="Например, 125000"></label>
+    </div>
+    <fieldset class="car-post-fields" id="carPostFields" hidden>
+      <legend><span class="step-pill">02</span> Характеристики автомобиля</legend>
+      <p class="form-hint">Укажите реальные данные машины — покупателям будет проще её найти.</p>
+      <div class="form-grid">
+        <label>Марка<input name="car_brand" maxlength="100" placeholder="Toyota" list="brandSuggestions"></label>
+        <label>Модель<input name="car_model" maxlength="100" placeholder="Camry"></label>
+        <label>Год выпуска<input name="car_year" type="number" min="1900" max="2027" placeholder="2018"></label>
+        <label>Пробег, км<input name="car_mileage" type="number" min="0" max="3000000" placeholder="85000"></label>
+        <label>Коробка передач<select name="car_transmission"><option value="">Не указано</option><option>Автомат</option><option>Механика</option><option>Вариатор</option><option>Робот</option></select></label>
+        <label>Топливо<select name="car_fuel"><option value="">Не указано</option><option>Бензин</option><option>Дизель</option><option>Газ</option><option>Гибрид</option><option>Электро</option></select></label>
+        <label>Привод<select name="car_drive"><option value="">Не указано</option><option>Передний</option><option>Задний</option><option>Полный</option></select></label>
+        <label>Кузов<select name="car_body"><option value="">Не указано</option><option>Седан</option><option>Внедорожник</option><option>Хэтчбек</option><option>Универсал</option><option>Купе</option><option>Пикап</option><option>Минивэн</option><option>Другое</option></select></label>
+        <label>Объём двигателя<input name="car_engine" maxlength="100" placeholder="2.5 л"></label>
+        <label>Цвет<input name="car_color" maxlength="100" placeholder="Белый"></label>
+        <label>Руль<select name="car_steering"><option value="">Не указано</option><option>Левый</option><option>Правый</option></select></label>
+        <label>Состояние<select name="car_car_condition"><option value="">Не указано</option><option>С пробегом</option><option>Новый</option><option>После ремонта</option></select></label>
+      </div>
+    </fieldset>
+    <div class="post-section-head"><span class="step-pill">03</span><div><strong>Описание и фотографии</strong><small>Расскажите покупателю больше</small></div></div>
+    <label>Описание объявления<textarea name="description" required minlength="5" maxlength="3000" rows="5" placeholder="Расскажите о состоянии, комплектации, документах и особенностях. Указывайте только проверенные факты."></textarea></label>
+    <div class="upload-box"><label for="postPhoto" class="upload-label"><svg class="icon"><use href="#i-camera"/></svg><span><strong>Добавить до 6 фотографий</strong><small>JPG, PNG или WEBP · до 5 МБ каждая</small></span></label><input id="postPhoto" type="file" name="photos" accept="image/jpeg,image/png,image/webp" multiple><div id="photoPreview" class="photo-preview" hidden></div></div>
+    <label id="removePhotoWrap" class="checkbox-line" hidden><input type="checkbox" name="remove_photo" value="1"> Заменить старые фотографии новыми</label>
+    <p class="post-safety">Не публикуйте пароли, коды подтверждения или секретные данные. После публикации вам смогут писать покупатели.</p>
+    <button type="submit" id="postSubmit" class="button button-primary button-wide">Опубликовать объявление</button>
+  </form>
+</dialog>
+<datalist id="brandSuggestions"></datalist>
+
+<dialog class="dialog dialog-detail" id="detailDialog" aria-labelledby="detailTitle"><div class="dialog-head"><div><div class="kicker">ОБЪЯВЛЕНИЕ</div><h2 id="detailTitle">Подробнее</h2></div><button class="close-button" data-close="detailDialog" aria-label="Закрыть"><svg class="icon"><use href="#i-close"/></svg></button></div><div class="dialog-body" id="detailBody"></div></dialog>
+<dialog class="dialog dialog-narrow" id="inboxDialog" aria-labelledby="inboxTitle"><div class="dialog-head"><div><div class="kicker">СВЯЗЬ С ПРОДАВЦАМИ</div><h2 id="inboxTitle">Мои сообщения</h2></div><button class="close-button" data-close="inboxDialog" aria-label="Закрыть"><svg class="icon"><use href="#i-close"/></svg></button></div><div class="dialog-body" id="inboxBody"></div></dialog>
+<dialog class="dialog dialog-narrow" id="chatDialog" aria-labelledby="chatTitle"><div class="dialog-head"><div><div class="kicker">ЛИЧНАЯ ПЕРЕПИСКА</div><h2 id="chatTitle">Чат</h2></div><button class="close-button" data-close="chatDialog" aria-label="Закрыть"><svg class="icon"><use href="#i-close"/></svg></button></div><div class="dialog-body"><div id="chatMessages" class="chat-messages"></div><form id="chatForm" class="chat-send"><input name="body" maxlength="1000" required placeholder="Ваше сообщение..." aria-label="Сообщение"><button class="button button-primary" type="submit" aria-label="Отправить"><svg class="icon"><use href="#i-arrow"/></svg></button></form></div></dialog>
+<dialog class="dialog dialog-narrow" id="accountDialog" aria-labelledby="accountTitle"><div class="dialog-head"><div><div class="kicker">ЛИЧНЫЙ КАБИНЕТ</div><h2 id="accountTitle">Профиль</h2></div><button class="close-button" data-close="accountDialog" aria-label="Закрыть"><svg class="icon"><use href="#i-close"/></svg></button></div><div class="dialog-body" id="accountBody"></div></dialog>
+
+<div class="toast-stack" id="toastStack" aria-live="polite"></div>
+</body>
+</html>
